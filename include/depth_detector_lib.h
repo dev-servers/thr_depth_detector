@@ -6,17 +6,18 @@
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/image_encodings.h>
 #include <std_msgs/Bool.h>
-#include <std_msgs/Int32.h>
+#include <std_msgs/UInt8.h>
 #include <std_msgs/Float32.h>
 #include <darknet_ros_msgs/BoundingBoxes.h>
+#include <math.h> 
 
 
 using namespace std;
 
-class PathFinderNode {
+class DepthDetectorNode {
   public:
-    PathFinderNode();
-    ~PathFinderNode();
+    DepthDetectorNode();
+    ~DepthDetectorNode();
 
   private:
     cv_bridge::CvImagePtr depth_ptr;
@@ -26,5 +27,5 @@ class PathFinderNode {
     ros::Publisher pub_speed_flag;
     ros::Publisher pub_normalized_depth_img;
     void depth_img_callback(const sensor_msgs::ImageConstPtr &depth_img);
-    void bounding_boxes_callback((darknet_ros_msgs::BoundingBoxes bounding_boxes));
+    void bounding_boxes_callback(darknet_ros_msgs::BoundingBoxes bounding_boxes);
 };

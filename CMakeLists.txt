@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(depth_detector)
+project(thr_depth_detector)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   sensor_msgs
   cv_bridge
+  darknet_ros_msgs
 )
 ## System dependencies are found with CMake's conventions
 find_package(OpenCV REQUIRED) 
@@ -122,7 +123,7 @@ include_directories(
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
-  src/depth_detector.cpp
+  src/depth_detector_lib.cpp
 )
 target_link_libraries(${PROJECT_NAME}
   ${OpenCV_LIBS} 
