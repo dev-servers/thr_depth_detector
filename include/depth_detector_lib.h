@@ -11,6 +11,8 @@
 #include <darknet_ros_msgs/BoundingBoxes.h>
 #include <math.h> 
 
+#include <vector>
+
 
 using namespace std;
 
@@ -28,4 +30,5 @@ class DepthDetectorNode {
     ros::Publisher pub_normalized_depth_img;
     void depth_img_callback(const sensor_msgs::ImageConstPtr &depth_img);
     void bounding_boxes_callback(darknet_ros_msgs::BoundingBoxes bounding_boxes);
+    vector<uint32_t> window_distances;
 };
